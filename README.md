@@ -14,23 +14,6 @@ npm install
 After installing the dependencies, use the following command to start the local development server:
 npm start
 
-**Directory Structure for frontend**
-
-├──node_modules
-├── public/                 # Public assets
-│   ├── index.html          # Entry HTML file
-├── src/                    # Source code
-│   ├── components/         # React components
-│   │   ├── home.js         # Home page component
-│   │   ├── log-in.js       # Login page component
-│   │   ├── sign-up.js      # Sign up page component
-│   │   ├── serviceType.js  # Service Type page component
-│   │   ├── myService.js    # My Service page component
-│   ├── App.js              # Main component defining routes
-│   ├── index.js            # Entry point for React
-├── package.json            # Project dependencies and scripts
-├── package-lock.json       # Locks dependency versions
-
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
 ### start backend
