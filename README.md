@@ -16,7 +16,8 @@ npm start
 
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
-### start backend
+### Start backend
+
 
 ### Start SQL database （You don't need to do that before the log in function finish)
 **About File sqlserver.tar**
@@ -27,6 +28,7 @@ Attribute in table contact_content: message_id (primary key), message_from_id, m
 
 __How to Use the Docker Image (sqlserver.tar)__
 ***Step 1: Ensure Docker is Installed***
+
 ***Step 2: Download and Import the Docker Image***
 1. Download the sqlserver.tar file.
 2. Save the file to a location on your computer and remember its path.
