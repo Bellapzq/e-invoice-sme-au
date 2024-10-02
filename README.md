@@ -15,6 +15,7 @@ After installing the dependencies, use the following command to start the local 
 npm start
 
 **Directory Structure for frontend**
+
 ├──node_modules
 ├── public/                 # Public assets
 │   ├── index.html          # Entry HTML file
