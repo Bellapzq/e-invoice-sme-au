@@ -20,6 +20,7 @@ npm start
 
 
 ### Start SQL database （You don't need to do that before the log in function finish)
+
 **About File sqlserver.tar**
 User information and chating message is storaged in SQLserver project.
 
@@ -27,6 +28,7 @@ Attribute in table user_info: user_id (primary key), first_name, last_name, phon
 Attribute in table contact_content: message_id (primary key), message_from_id, message_to_id, message_contant, is_reply
 
 __How to Use the Docker Image (sqlserver.tar)__
+
 ***Step 1: Ensure Docker is Installed***
 
 ***Step 2: Download and Import the Docker Image***
@@ -65,6 +67,7 @@ If you no longer need the container, you can remove it with this command:
 docker rm sqlserver
 
 ### Stage 1 
+
 **Due time: Before due time of Demo A （October 13)**
 | Name       | Task                                                                               |
 |------------|------------------------------------------------------------------------------------|
