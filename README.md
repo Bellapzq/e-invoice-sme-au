@@ -8,14 +8,15 @@ First, clone this repository to your local development environment:
 2. Install Dependencies
 Navigate to the project directory and run the following command to install the required dependencies:
 
-cd Business_Process_for_SMEs_Utilizing/frontend
+**cd Business_Process_for_SMEs_Utilizing/frontend**
 
-npm install
+**npm install**
 
 3.Start the Development Server
 After installing the dependencies, use the following command to start the local development server:
 
-npm start
+**npm start**
+
 
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
