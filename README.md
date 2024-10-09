@@ -1,4 +1,4 @@
-# Project Name: Business Process for SMEs Utilizing Frontend
+# Project Name: Business Process for SMEs Utilizing E-invoicing APIs
 ### Project Overview
 
 ### Start Frontend
