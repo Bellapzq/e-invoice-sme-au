@@ -33,7 +33,7 @@ Attribute in table contact_content: message_id (primary key), message_from_id, m
 
 ### Stage 1 
 
-**Due time: Before due time of Demo A （October 13)**
+**Due time: October 13**
 | Name       | Task                                                                               |
 |------------|------------------------------------------------------------------------------------|
 | Bella      | Database backend set up, "Log-in" and "signup" frontend page set up                |
