@@ -7,73 +7,74 @@ First, clone this repository to your local development environment:
 
 2. Install Dependencies
 Navigate to the project directory and run the following command to install the required dependencies:
+
 cd Business_Process_for_SMEs_Utilizing/frontend
+
 npm install
 
 3.Start the Development Server
 After installing the dependencies, use the following command to start the local development server:
+
 npm start
 
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
 ### Start backend
 
+**Start backend**
 
-### Start SQL database （You don't need to do that before the log in function finish)
+cd Business_Process_for_SMEs_Utilizing/backend
 
-**About File sqlserver.tar**
-User information and chating message is storaged in SQLserver project.
+node server.js
 
-Attribute in table user_info: user_id (primary key), first_name, last_name, phone_number, email(UNIQUE), user_password, user_status 
-Attribute in table contact_content: message_id (primary key), message_from_id, message_to_id, message_contant, is_reply
 
-__How to Use the Docker Image (sqlserver.tar)__
+### Start SQL database 
 
 ***Step 1: Ensure Docker is Installed***
 
-***Step 2: Download and Import the Docker Image***
-1. Download the sqlserver.tar file.
-2. Save the file to a location on your computer and remember its path.
+***Step 2: Clone the project from the code repository to your local***
 
-Next, import the Docker image from the .tar file using this command:
-docker load -i /path/to/sqlserver.tar
+***Step 3: Start the Docker container***
+In the project root directory (where docker-compose.yml is located), run the following command to start the SQL Server container and initialize the database:
 
-Replace /path/to/sqlserver.tar with the actual path where you saved the .tar file. This command will load the Docker image into your local Docker environment.
+docker-compose up
 
-***Step 3: Run the SQL Server Container***
-After importing the image, you can run the SQL Server container with the following command:
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Comp9900@' -p 1433:1433 --name sqlserver -d <image_name>
+***(optional) Verify the database***
+After the Docker container starts, you can connect to SQL Server to verify that the database was created successfully by:
 
-Replace <image_name> with the name of the image you just imported. To find the correct image name, use this command:
-docker images
+Connection string: You can use SQL Server Management Studio (SSMS) or Azure Data Studio to connect to SQL Server using the following information:
 
-Look for the image you imported, which will have a name like mcr.microsoft.com/mssql/server, along with a tag (e.g., 2022-latest). Use this name and tag when running the container.
+Server: localhost,1433
+User: sa
+Password: YourPassword123
 
-Example:
-If the image name is mcr.microsoft.com/mssql/server:2022-latest, the command would look like this:
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Comp9900@' -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 
-***Step 4: Managing the Container***
-Stopping the Container:
-To stop the container, use this command:
-docker stop sqlserver
+**database information**
 
-Restarting the Container:
-To restart the container, use this command:
-docker start sqlserver
+Table user_info
+| user_id | first_name | last_name | phone_number | email               | user_password | user_status |
+|---------|------------|-----------|--------------|---------------------|---------------|-------------|
+| 1       | Bella      | Pang      | 8888888      | Bella@example.com   | Bella123!     | admin       |
+| 2       | user       | user      | 12345678     | user@example.com    | user123!      | NULL        |
+| 3       | admin      | admin     | 87654321     | admin@example.com   | admin123!     | admin       |
 
-Removing the Container:
-If you no longer need the container, you can remove it with this command:
-docker rm sqlserver
+You can use this information start your log in.
+
+Table contact_content
+| message_id | message_from_id | message_to_id | message_contant | send_time | is_reply |
+|------------|-----------------|---------------|-----------------|-----------|----------|
+| 1          | 2               | 1             | Test boolean.   | NULL      | NULL     |
+
+This table will be use for contaction.
 
 ### Stage 1 
 
-**Due time: Before due time of Demo A （October 13)**
+**Due time: October 13**
 | Name       | Task                                                                               |
 |------------|------------------------------------------------------------------------------------|
 | Bella      | Database backend set up, "Log-in" and "signup" frontend page set up                |
 | Glofy      | Backend base set up, Swagger set up for the data storage of "My Account"           |
-| Blythe     | "My Account" frontend page set up                                                  |
-| Sheng      | "Home" page frontend page set up                                                   |
-| Crystal    | "Home" page frontend page set up                                                   |
+| Blythe     | "Service Type" frontend page set up                                                |
+| Sheng      | "Home", "My Account" page frontend page set up                                     |
+| Crystal    | "Home", "user management" page frontend page set up                                |
 
