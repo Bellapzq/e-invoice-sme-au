@@ -1,82 +1,9 @@
 import React from "react";
-import {
-  Grid,
-  Box,
-  Button,
-  Typography,
-  AppBar,
-  Toolbar,
-  Link,
-  Paper,
-} from "@mui/material";
+import {Grid, Box, Button, Typography, Paper} from "@mui/material";
 
 const HomePage = () => {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#FFFFFF" }}>
-      {/* Header */}
-      <AppBar
-        position="static"
-        style={{ backgroundColor: "#6589af", height: "90px" }}
-      >
-        <Toolbar style={{ justifyContent: "space-between", height: "90px" }}>
-          <Typography variant="h6" component="div">
-            <img
-              src="company-logo.png"
-              style={{ width: "40px", marginRight: "10px" }}
-            />
-            Company Name and Logo
-          </Typography>
-          <Box style={{ marginLeft: "-20px" }}>
-            <Link
-              href="/"
-              color="inherit"
-              style={{
-                marginRight: "20px",
-                textDecoration: "none",
-                fontSize: "18px",
-              }}
-            >
-              Home
-            </Link>
-            <Link
-              href="/serviceType"
-              color="inherit"
-              style={{
-                marginRight: "20px",
-                textDecoration: "none",
-                fontSize: "18px",
-              }}
-            >
-              Service Type
-            </Link>
-            <Link
-              href="/myAccount"
-              color="inherit"
-              style={{
-                marginRight: "20px",
-                textDecoration: "none",
-                fontSize: "18px",
-              }} // Set font size
-            >
-              My Account
-            </Link>
-            <Button
-              href="/log-in"
-              variant="contained"
-              style={{
-                backgroundColor: "#FFFFFF",
-                color: "#6589af",
-                border: "1px solid #6589af",
-                fontSize: "16px",
-                textTransform: "none",
-              }}
-            >
-              Login
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
       {/* Main Section */}
       <Grid container style={{ padding: "50px" }}>
         {/* Left Section - Illustration */}
@@ -119,7 +46,7 @@ const HomePage = () => {
             🚀 Automate Your Invoicing
             <br />- Fast, Easy, and Hassle-Free!
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="body5" paragraph>
             Tired of the tedious process of generating invoices manually? Let us
             take care of that with our Automatic Invoicing Website, designed to
             simplify and speed up your billing process, so you can focus on what

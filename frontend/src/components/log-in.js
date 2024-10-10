@@ -24,12 +24,12 @@ const LoginPage = () => {
         });
   
         // Processing after successful login
-        console.log('Login successful:', response.data);
+        localStorage.setItem('isLoggedIn', 'true');
         setError('');  // Clear error message
         setLoading(false);
         
         // After successful login, jump to the home page
-      navigate('/home');  
+      navigate('/');  
     } catch (error) {
       // Catch the error and update the error status
       setError('Invalid email or password');
@@ -43,7 +43,7 @@ const LoginPage = () => {
         {/* Left Section */}
         <Box display="flex" style={{marginLeft: '10%', marginTop: '10px'}}>
           <img src="left-arrow.png" style={{ width: '20px', height: '20px', marginRight: '10px' }}></img>
-          <Link href="/home" variant="body3">Log in next time</Link>
+          <Link href="/" variant="body3">Log in next time</Link>
         </Box>
         <Box 
           display="flex" 
