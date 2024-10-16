@@ -27,13 +27,8 @@ cd Business_Process_for_SMEs_Utilizing/backend
 
 node server.js
 
-### Start SQL database （Still need to be fixed)
-
-**About File sqlserver**
-User information and chating message is storaged in SQLserver project.
-
-
 ### Start SQL database 
+( After install sqlserver in your docker, you don't need to install it again. You just need to keep turn on the sqlserver in your docker.)
 
 ***Step 1: Ensure Docker is Installed***
 
