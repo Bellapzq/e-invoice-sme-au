@@ -7,7 +7,6 @@ logs/
 *.log
 npm-debug.log*
 
-
 # Docker 持久化数据文件夹
 data/
 
