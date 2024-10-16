@@ -6,13 +6,14 @@ const NavBar = () => {
 
   // Check the logged in status every time the component is loaded
   useEffect(() => {
-    const loggedInStatus = localStorage.getItem('isLoggedIn');
-    setIsLoggedIn(loggedInStatus === 'true');
-  }, []);
+    const loggedInStatus = sessionStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedInStatus);  // 同步登录状态
+  }, []);  // 当 isLoggedIn 改变时，自动更新导航栏
 
   // Handling logout logic
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn'); // Clear login status
+    sessionStorage.removeItem('isLoggedIn'); // Clear login status
+    sessionStorage.removeItem('token');  // 清除存储的 token
     setIsLoggedIn(false); // Update Status
   };
 

@@ -3,13 +3,14 @@ import { Grid, Paper, TextField, Button, Typography, Checkbox, Link, Box } from 
 import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = ({ setLoggedIn }) => {
     // Use the useState hook to store the email and password entered by the user 使用 useState 钩子来存储用户输入的邮箱和密码
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(localStorage.getItem('email') || '');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');  // To handle error messages 用于处理错误提示
     const [loading, setLoading] = useState(false);  // To display the loading status
     const navigate = useNavigate();
+    const [rememberMe, setRememberMe] = useState(false);  // Remember me state
   
     // Processing function when the form is submitted 表单提交时的处理函数
     const handleSubmit = async (e) => {
@@ -22,14 +23,25 @@ const LoginPage = () => {
           email,
           password
         });
+
+        if (rememberMe) {
+          localStorage.setItem('email', email); 
+        }
   
-        // Processing after successful login
-        localStorage.setItem('isLoggedIn', 'true');
+       // Processing after successful login
+        const token = response.data.token;
+        // localStorage.setItem('token', token);  // 存储从后端返回的 JWT token
+        sessionStorage.setItem('token', token);
+        console.log('JWT Token:', response.data.token);
+        // localStorage.setItem('isLoggedIn', 'true');  // 登录状态
+        sessionStorage.setItem('isLoggedIn', 'true'); 
+        // 在登录成功后调用 setLoggedIn(true)
+        setLoggedIn(true);
+        // fetchData();  // 调用 fetchData 函数，获取受保护的资源
         setError('');  // Clear error message
         setLoading(false);
-        
         // After successful login, jump to the home page
-      navigate('/');  
+        navigate('/');  
     } catch (error) {
       // Catch the error and update the error status
       setError('Invalid email or password');
@@ -82,7 +94,11 @@ const LoginPage = () => {
               />
               {error && <Typography color="error" variant="body2">{error}</Typography>}
               <Box display="flex" justifyContent="flex-start" alignItems="center" my={2}>
-                <Checkbox color="primary" />
+                <Checkbox
+                  color="primary"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
                 <Typography variant="body2">Remember me</Typography>
                 <Link href="#" variant="body2" style={{ marginLeft: 'auto' }}>Forgot Password?</Link>
               </Box>

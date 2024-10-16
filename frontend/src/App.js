@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/log-in';
@@ -17,6 +17,7 @@ function App() {
 
 function InnerApp() {
   const location = useLocation();
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="App">
@@ -26,7 +27,7 @@ function InnerApp() {
         )}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/log-in" element={<Login />} />
+          <Route path="/log-in" element={<Login setLoggedIn={setLoggedIn} />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/serviceType" element={<ServiceType />} />
           <Route path="/myService" element={<MyService />} />
