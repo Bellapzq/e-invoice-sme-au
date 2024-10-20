@@ -2,18 +2,18 @@
 
  port = 5001;
 
-**Start backend**
+### Start backend
 
 cd Business_Process_for_SMEs_Utilizing/backend
 
 node server.js
 
-**server.js:** 
+### server.js:
 1. set up app listen port: 5001
 2. set up Routers
 
-**Routes**
-###  userRoutes: All user related API routes is in here.
+### Routes
+***userRoutes: All user related API routes is in here.***
 1. Login API '/login'
 
 Use method "post" to query email and password in sqldatabase. If result is not empty, login seeccess and a token will be set up. This API also can identifies the status of the user, like user or admin.
@@ -30,5 +30,6 @@ Use "put" method to update the input after edit.
 
 Use "delete" method to remove the user.
 
-**config/dbConfig.js:** storage the database information whitch is used for database API setup.
+### config/dbConfig.js:
+storage the database information whitch is used for database API setup.
 
