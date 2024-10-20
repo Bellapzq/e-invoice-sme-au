@@ -6,6 +6,7 @@ import SignUp from './components/sign-up';
 import ServiceType from './components/serviceType'
 import MyService from './components/myService';
 import NavBar from './components/NavBar'; 
+import Management from './components/management';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function InnerApp() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/serviceType" element={<ServiceType />} />
           <Route path="/myService" element={<MyService />} />
+          <Route path="/management" element={<Management />} />
         </Routes>
       </div>
     </div>

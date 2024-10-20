@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
     let result = await pool.request()
       .input('email', sql.NVarChar, email)
       .input('password', sql.NVarChar, password)
-      .query('SELECT * FROM user_info WHERE email = @email AND user_password = @password');
+      .query('SELECT user_id, email, user_status FROM user_info WHERE email = @email AND user_password = @password');
 
     // 检查结果是否为空 if query result is empty, password is wrong ot email is not exit
     if (result.recordset.length === 0) {
@@ -27,18 +27,18 @@ router.post('/login', async (req, res) => {
     }
 
     const user = result.recordset[0];
-
     // 生成JWT token，包括用户ID和其他信息
     const token = jwt.sign(
-        {id:user.user_id, email:user.email},
+        {id: user.user_id, email: user.email, status: user.user_status},
         secretKey,
-        {expiresIn: '5h'} //expires time
-    )
+        //{expiresIn: '5h'} //expires time
+    );
 
     // log in success
     return res.status(200).json({ message: 'Login successful', token });
   } catch (err) {
-    console.error(err);
+    console.error('Error executing query', err);
+    // console.error(err);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
@@ -80,6 +80,58 @@ router.post('/sign-up', async (req, res)=> {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
+});
+
+// User management (show user) Routing
+router.get('/users', async (req,res) => {
+    try{
+        let pool = await sql.connect(dbConfig);
+        let result = await pool.request().query(' SELECT * from user_info');
+        return res.status(200).json(result.recordset);
+    }catch (err) {
+        console.error('Error fetching users:', err);
+        res.status(500).json({ message: 'Internal server erroe'});
+    }
+});
+
+// User management (edit user) Routing
+router.put('/users/:id', async (req,res) =>{
+    const {id} = req.params;
+    const { firstName, lastName, phone_number, email, user_status } = req.body;
+
+    try{
+        let pool = await sql.connect(dbConfig);
+        await pool.request()
+          .input('firstName', sql.NVarChar, firstName)
+          .input('lastName', sql.NVarChar, lastName)
+          .input('phone_number', sql.NVarChar, phone_number)
+          .input('email', sql.NVarChar, email)
+          .input('user_status', sql.NVarChar, user_status)
+          .input('user_id', sql.Int, id)
+          .query('UPDATE user_info SET first_name = @firstName, last_name = @lastName, phone_number = @phone_number, email = @email, user_status = @user_status WHERE user_id = @user_id');
+    
+    return res.status(200).json({ message: 'User updated successfully' });
+    }catch (err) {
+    console.error('Error updating user:', err);
+    res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// User management (delete user) Routing
+router.delete('/user/:id', async(req, res) => {
+    const { id } = req.params;
+
+    try{
+        let pool = await sql.connect(dbConfig);
+        await pool.request()
+          .input('user_id', sql.Int, id)
+          .query('DELETE FROM user_info WHERE user_id = @user_id');
+    
+        return res.status(200).json({ message: 'User deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting user:', err);
+        res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 module.exports = router;

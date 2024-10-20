@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Grid, Paper, TextField, Button, Typography, Checkbox, Link, Box } from '@mui/material';
 import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const LoginPage = ({ setLoggedIn }) => {
     // Use the useState hook to store the email and password entered by the user 使用 useState 钩子来存储用户输入的邮箱和密码
@@ -33,9 +34,24 @@ const LoginPage = ({ setLoggedIn }) => {
         // localStorage.setItem('token', token);  // 存储从后端返回的 JWT token
         sessionStorage.setItem('token', token);
         console.log('JWT Token:', response.data.token);
+        // console.log('JWT Token Length:', token.length);
+
+        // 解析JWT Token获取用户身份
+        const decodedToken = jwtDecode(token);
+        // console.log(decodedToken);
+        const userStatus = decodedToken.status; // 获取用户身份 (admin or user)
+
+        // 判断是否为管理员
+        if (userStatus === 'admin') {
+            sessionStorage.setItem('isAdmin', 'true'); // 记住管理员状态
+        } else {
+            sessionStorage.setItem('isAdmin', 'false');
+        }
+
         // localStorage.setItem('isLoggedIn', 'true');  // 登录状态
         sessionStorage.setItem('isLoggedIn', 'true'); 
         // 在登录成功后调用 setLoggedIn(true)
+
         setLoggedIn(true);
         // fetchData();  // 调用 fetchData 函数，获取受保护的资源
         setError('');  // Clear error message
