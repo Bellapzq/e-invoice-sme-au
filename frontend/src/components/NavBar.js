@@ -3,18 +3,24 @@ import { AppBar, Toolbar, Typography, Button, Link, Box } from '@mui/material';
 
 const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Login status
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // Check the logged in status every time the component is loaded
   useEffect(() => {
     const loggedInStatus = sessionStorage.getItem('isLoggedIn') === 'true';
-    setIsLoggedIn(loggedInStatus);  // 同步登录状态
-  }, []);  // 当 isLoggedIn 改变时，自动更新导航栏
+    setIsLoggedIn(loggedInStatus);  // Synchronize login status
+
+    const adminStatus = sessionStorage.getItem('isAdmin') === 'true';
+    setIsAdmin(adminStatus); // Update Admin Status
+  }, []);  // Automatically update the navigation bar when isLoggedIn changes
 
   // Handling logout logic
   const handleLogout = () => {
     sessionStorage.removeItem('isLoggedIn'); // Clear login status
-    sessionStorage.removeItem('token');  // 清除存储的 token
+    sessionStorage.removeItem('token');  // Clear the stored token
+    sessionStorage.removeItem('isAdmin');
     setIsLoggedIn(false); // Update Status
+    setIsAdmin(false);  // Reset Admin Status
   };
 
   return (
@@ -34,6 +40,13 @@ const NavBar = () => {
           <Link href="/myAccount" color="inherit" style={{ marginRight: '20px', textDecoration: 'none', fontSize: '18px' }}>
             My Account
           </Link>
+
+          {isAdmin && (
+              <Link href="/management" color="inherit" style={{ marginRight: '20px', textDecoration: 'none' }}>
+                  Management
+              </Link>
+          )}
+
           {isLoggedIn ? (
             <Button
               onClick={handleLogout}
