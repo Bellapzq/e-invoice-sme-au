@@ -26,12 +26,24 @@ npm start
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
 ### Start backend
+1. Start **Docker**
+2. Initialize Backend Server
 
-**Start backend**
+```bash
+$ cd backend
+$ make up
+```
+If all good. It will start install automatically by docker. The default port for backend is `5000`.
 
-cd Business_Process_for_SMEs_Utilizing/backend
+3. Testing with **Swagger-UI**
 
-node server.js
+`http://localhost:5000/docs`
+
+4. Finish testing
+```bash
+$ make down
+```
+Clear the cache in your computer.
 
 ### Start SQL database 
 ( After install sqlserver in your docker, you don't need to install it again. You just need to keep turn on the sqlserver in your docker.)
