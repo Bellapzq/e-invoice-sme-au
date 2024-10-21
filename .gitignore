@@ -22,3 +22,6 @@ build/
 # 忽略操作系统生成的临时文件
 Thumbs.db
 *.swp
+
+# Python
+__pycache__/
