@@ -20,4 +20,10 @@ class PostCreateInput(BaseModel):
     user_id: int
 
 class PostUpdateInput(BaseModel):
+    title: str     
+
+class PostFileResponse(BaseModel):
     title: str
+    first_100_content: str
+    validresult: str
+    created: datetime = Field(default_factory=datetime.utcnow)

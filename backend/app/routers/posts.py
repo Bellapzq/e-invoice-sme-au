@@ -1,7 +1,7 @@
-from fastapi import APIRouter, status, HTTPException
+from fastapi import APIRouter, status, HTTPException, File, UploadFile
 
 from app.database import database
-from app.schema.post import Post, PostCreateInput, PostUpdateInput, PostResponse
+from app.schema.post import Post, PostCreateInput, PostUpdateInput, PostResponse, PostFileResponse
 from app.schema.user import User, UserResponse
 
 __all__ = ("router",)
@@ -130,3 +130,27 @@ async def delete_post(post_id: int) -> None:
        return
     database.posts.pop(post_id)
     return None
+
+@router.post(
+        "/upload",
+        description="Upload a file (our invoice) and valid it, always return true response",
+        status_code=status.HTTP_200_OK
+)
+async def upload(user_id: int, file: UploadFile = File(...)) -> PostFileResponse:
+    if user_id not in database.users:
+        raise HTTPException(
+            detail="User not found",
+            status_code=status.HTTP_404_NOT_FOUND
+        )
+    try:
+        contents = await file.read()
+        return PostFileResponse(
+            title=f"Successfully read the contents of {file.filename}",
+            first_100_content=contents[:100],
+            validresult="True"
+        )
+    except Exception as e:
+        error_message = f"There was an error uploading the file: {str(e)}"
+        return {"message": error_message}
+    finally:
+        await file.close()
