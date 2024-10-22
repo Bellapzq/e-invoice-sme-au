@@ -37,7 +37,7 @@ If all good. It will start install automatically by docker. The default port for
 
 3. Testing with **Swagger-UI**
 
-`http://localhost:5000/docs`
+`http://localhost:5001/docs`
 
 4. Finish testing
 ```bash
