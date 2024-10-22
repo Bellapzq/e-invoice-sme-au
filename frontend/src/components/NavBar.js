@@ -37,7 +37,7 @@ const NavBar = () => {
           <Link href="/serviceType" color="inherit" style={{ marginRight: '20px', textDecoration: 'none', fontSize: '18px' }}>
             Service Type
           </Link>
-          <Link href="/myAccount" color="inherit" style={{ marginRight: '20px', textDecoration: 'none', fontSize: '18px' }}>
+          <Link href="/myService" color="inherit" style={{ marginRight: '20px', textDecoration: 'none', fontSize: '18px' }}>
             My Account
           </Link>
 
