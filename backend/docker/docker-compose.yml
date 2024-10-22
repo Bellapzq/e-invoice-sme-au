@@ -4,11 +4,11 @@ services:
       context: ./..
       dockerfile: ./docker/Dockerfile
     ports:
-      - "5000:5000"
+      - "5001:5001"
     environment:
       - APP_ENV=local
     healthcheck:
-      test: "curl -f http://localhost:5000/heartbeat/readiness || exit 1"
+      test: "curl -f http://localhost:5001/heartbeat/readiness || exit 1"
       interval: 20s
       timeout: 3s
       retries: 15
