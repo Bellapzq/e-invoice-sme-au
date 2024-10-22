@@ -33,7 +33,7 @@ npm start
 $ cd backend
 $ make up
 ```
-If all good. It will start install automatically by docker. The default port for backend is `5000`.
+If all good. It will start install automatically by docker. The default port for backend is `5001`.
 
 3. Testing with **Swagger-UI**
 
