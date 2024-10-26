@@ -13,11 +13,25 @@ services:
       - ./data:/var/opt/mssql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Initialization SQL script
 
-    # Run SQL Server and initialize the database using `init.sql`
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        /opt/mssql/bin/sqlservr &
-        sleep 30s
-        /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P @Comp9900 -i /docker-entrypoint-initdb.d/init.sql
+#     # Run SQL Server and initialize the database using `init.sql`
+#     entrypoint:
+#       - /bin/bash
+#       - -c
+#       - |
+#         /opt/mssql/bin/sqlservr &
+#         sleep 30s
+#         /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P @Comp9900 -i /docker-entrypoint-initdb.d/init.sql
+# version: '3.8'
+
+# services:
+#   sqlserver:
+#     image: mcr.microsoft.com/mssql/server:2022-latest
+#     container_name: sqlserver_1
+#     environment:
+#       - ACCEPT_EULA=Y
+#       - SA_PASSWORD=@Comp9900
+#     ports:
+#       - "1434:1434"
+#     volumes:
+#       - ./data:/var/opt/mssql
+#       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
