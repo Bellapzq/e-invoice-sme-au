@@ -8,20 +8,18 @@ First, clone this repository to your local development environment:
 2. Install Dependencies
 Navigate to the project directory and run the following command to install the required dependencies:
 
+```bash
+$ cd frontend
+$ npm install
+```
 
-cd Business_Process_for_SMEs_Utilizing/frontend
-
-npm install
-
-**cd Business_Process_for_SMEs_Utilizing/frontend**
-
-**npm install**
 
 3. Start the Development Server
 After installing the dependencies, use the following command to start the local development server:
 
-npm start
-
+```bash
+$ npm start
+```
 
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
@@ -30,7 +28,7 @@ npm start
 2. Initialize Backend Server
 
 ```bash
-$ cd backend
+$ cd FastAPI_backend
 $ make up
 ```
 If all good. It will start install automatically by docker. The default port for backend is `5002`.
@@ -55,7 +53,9 @@ Clear the cache in your computer.
 ***Step 3: Start the Docker container***
 In the project root directory (where docker-compose.yml is located), run the following command to start the SQL Server container and initialize the database:
 
-docker-compose up
+```bash
+$ docker-compose up
+```
 
 ***(optional) Verify the database***
 After the Docker container starts, you can connect to SQL Server to verify that the database was created successfully by:
