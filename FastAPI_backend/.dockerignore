@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+
+# Docker
+Dockerfile
+dockerfile-compose.yml
+
+# ENV
+.env
+.venv
+env/
+venv/
+
+# PEP 582
+__pypackages__
