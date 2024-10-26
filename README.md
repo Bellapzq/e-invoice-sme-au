@@ -1,7 +1,6 @@
 # Project Name: Business Process for SMEs Utilizing E-invoicing APIs
-### Project Overview
 
-### Start Frontend
+## Start Frontend
 1. Clone the Repository
 First, clone this repository to your local development environment:
 
@@ -20,10 +19,14 @@ After installing the dependencies, use the following command to start the local 
 ```bash
 $ npm start
 ```
+4. Test Frontend by 'http://localhost:3000/'
+
 
 **UI Design Guide:** https://www.figma.com/design/aTZGOthh6ZmD9QHRiB47OI/9900---Blank-Figma-File?node-id=0-1&t=b0tXH7xrCcBr9vAr-1
 
-### Start backend
+## Backend
+Now we have two backend, FastAPI backend and ExpressJS backend. You have to set up **both** of them.
+### FastAPI Backend Start
 1. Start **Docker**
 2. Initialize Backend Server
 
@@ -43,14 +46,21 @@ $ make down
 ```
 Clear the cache in your computer.
 
+### ExpressJS Backend Start
+```bash
+$ cd ExpressJS_backend
+$ node server.js
+```
+
+## Database
 ### Start SQL database 
 ( After install sqlserver in your docker, you don't need to install it again. You just need to keep turn on the sqlserver in your docker.)
 
-***Step 1: Ensure Docker is Installed***
+1. Ensure Docker is Installed
 
-***Step 2: Clone the project from the code repository to your local***
+2. Clone the project from the code repository to your local
 
-***Step 3: Start the Docker container***
+3. Start the Docker container
 In the project root directory (where docker-compose.yml is located), run the following command to start the SQL Server container and initialize the database:
 
 ```bash
@@ -64,7 +74,7 @@ Connection string: You can use SQL Server Management Studio (SSMS) or Azure Data
 
 Server: localhost,1433
 User: sa
-Password: YourPassword123
+Password: @Comp9900
 
 
 **database information**
