@@ -7,6 +7,9 @@ import ServiceType from './components/serviceType'
 import MyService from './components/myService';
 import NavBar from './components/NavBar'; 
 import Management from './components/management';
+import SendConnection from './components/relationship/sendConnection';
+import PendingRequests from './components/relationship/PendingRequests'
+import PartnerCompanies from './components/relationship/PartnerCompanies'
 
 function App() {
   return (
@@ -33,6 +36,9 @@ function InnerApp() {
           <Route path="/serviceType" element={<ServiceType />} />
           <Route path="/myService" element={<MyService />} />
           <Route path="/management" element={<Management />} />
+          <Route path="/sendConnection" element={<SendConnection />} />
+          <Route path="/pendingRequests" element={<PendingRequests />} />
+          <Route path="/partnerCompanies" element={<PartnerCompanies />} />
         </Routes>
       </div>
     </div>

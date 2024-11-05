@@ -31,4 +31,3 @@ VALUES (2, 1, 'Test boolean.');
 
 ALTER TABLE contact_content
 ADD is_reply BIT DEFAULT 0;
-
