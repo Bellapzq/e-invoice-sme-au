@@ -30,11 +30,11 @@ WHERE user_id = 4;
 
 UPDATE user_info
 SET company_name = 'Company B', company_abn = '83603272123', company_unit_number = 'Unit 446', company_address = 'Address B', company_state = 'NSW', company_postal_code = '2018', company_country = 'Australia'
-WHERE user_id = 4;
+WHERE user_id = 5;
 
 UPDATE user_info
 SET company_name = 'Company C', company_abn = '83603272456', company_unit_number = 'Unit 447', company_address = 'Address C', company_state = 'NSW', company_postal_code = '2019', company_country = 'Australia'
-WHERE user_id = 4;
+WHERE user_id = 6;
 
 CREATE TABLE Document (
     DocumentID INT PRIMARY KEY IDENTITY,        -- Unique identifier of the message
@@ -48,7 +48,14 @@ CREATE TABLE Document (
     FOREIGN KEY (ReceiverID) REFERENCES user_info(user_id)
 );
 
+ALTER TABLE Document
+ADD if_send BIT DEFAULT 0;  -- The default value is 0 (not sent)
+
 -- if you want to check table, you can use query below:
 -- SELECT * FROM Messages
 -- SELECT * FROM Relationships
 -- SELECT * FROM user_info
+
+UPDATE user_info
+SET company_name = 'Company D', company_abn = '83603272777', company_unit_number = 'Unit 440', company_address = 'Address D', company_state = 'NSW', company_postal_code = '2011', company_country = 'Australia'
+WHERE user_id = 2;
