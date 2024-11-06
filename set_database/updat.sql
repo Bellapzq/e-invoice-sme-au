@@ -24,17 +24,17 @@ ADD company_name NVARCHAR(100) NULL,
     company_postal_code NVARCHAR(100) NULL,
     company_country NVARCHAR(50) NULL;
 
-UPDATE user_info
-SET company_name = 'Company A', company_abn = '83603272359', company_unit_number = 'Unit 445', company_address = 'Address A', company_state = 'NSW', company_postal_code = '2017', company_country = 'Australia'
-WHERE user_id = 4;
+-- UPDATE user_info
+-- SET company_name = 'Company A', company_abn = '83603272359', company_unit_number = 'Unit 445', company_address = 'Address A', company_state = 'NSW', company_postal_code = '2017', company_country = 'Australia'
+-- WHERE user_id = 4;
 
-UPDATE user_info
-SET company_name = 'Company B', company_abn = '83603272123', company_unit_number = 'Unit 446', company_address = 'Address B', company_state = 'NSW', company_postal_code = '2018', company_country = 'Australia'
-WHERE user_id = 5;
+-- UPDATE user_info
+-- SET company_name = 'Company B', company_abn = '83603272123', company_unit_number = 'Unit 446', company_address = 'Address B', company_state = 'NSW', company_postal_code = '2018', company_country = 'Australia'
+-- WHERE user_id = 5;
 
-UPDATE user_info
-SET company_name = 'Company C', company_abn = '83603272456', company_unit_number = 'Unit 447', company_address = 'Address C', company_state = 'NSW', company_postal_code = '2019', company_country = 'Australia'
-WHERE user_id = 6;
+-- UPDATE user_info
+-- SET company_name = 'Company C', company_abn = '83603272456', company_unit_number = 'Unit 447', company_address = 'Address C', company_state = 'NSW', company_postal_code = '2019', company_country = 'Australia'
+-- WHERE user_id = 6;
 
 CREATE TABLE Document (
     DocumentID INT PRIMARY KEY IDENTITY,        -- Unique identifier of the message
@@ -52,10 +52,14 @@ ALTER TABLE Document
 ADD if_send BIT DEFAULT 0;  -- The default value is 0 (not sent)
 
 -- if you want to check table, you can use query below:
--- SELECT * FROM Messages
--- SELECT * FROM Relationships
--- SELECT * FROM user_info
+SELECT * FROM Document
+SELECT * FROM Relationships
+SELECT * FROM user_info
 
-UPDATE user_info
-SET company_name = 'Company D', company_abn = '83603272777', company_unit_number = 'Unit 440', company_address = 'Address D', company_state = 'NSW', company_postal_code = '2011', company_country = 'Australia'
-WHERE user_id = 2;
+-- UPDATE user_info
+-- SET company_name = 'Company D', company_abn = '83603272777', company_unit_number = 'Unit 440', company_address = 'Address D', company_state = 'NSW', company_postal_code = '2011', company_country = 'Australia'
+-- WHERE user_id = 2;
+
+-- UPDATE Document
+-- SET SenderID = 2, ReceiverID = 4, if_send = 1
+-- WHERE DocumentID = 1;

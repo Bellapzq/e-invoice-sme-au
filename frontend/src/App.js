@@ -10,6 +10,9 @@ import Management from './components/management';
 import SendConnection from './components/relationship/sendConnection';
 import PendingRequests from './components/relationship/PendingRequests'
 import PartnerCompanies from './components/relationship/PartnerCompanies'
+import FileUpload from './components/uploadTest'
+import Profile from './components/profile'
+import ProfileUpdate from './components/profileUpdate'
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function InnerApp() {
           <Route path="/sendConnection" element={<SendConnection />} />
           <Route path="/pendingRequests" element={<PendingRequests />} />
           <Route path="/partnerCompanies" element={<PartnerCompanies />} />
+          <Route path="/fileUpload" element={<FileUpload />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profileUpdate" element={<ProfileUpdate />} />
         </Routes>
       </div>
     </div>
