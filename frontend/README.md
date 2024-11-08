@@ -30,25 +30,25 @@
 ## November 6th update
 ( ✅ means backend and frontend finish connection)
 ### Company branch
-**Related company information (My account)** ✅
+**Related company information (My account)** ✅ （finished）
 
 （frontend/src/components/relationship/PartnerCompanies.js）
 -	add a Search box
 -	List 
 
-**Create a connection request (My account)** ✅
+**Create a connection request (My account)** ✅（finished）
 
 （frontend/src/components/relationship/sendConnection.js）
 -	Button “Create a connection”
 -	Box with email input and request button
 
-**Receives the association request and confirms (message box)** 
+**Receives the association request and confirms (message box)** ✅
 
 （frontend/src/components/relationship/PendingRequests.js）
 -	Message icon in navigation bar
 -	If have new message and haven’t read, there will be a red point near message icon
 
-**Profile (My account)**
+**Profile (My account)** ✅
 
 (frontend/src/components/profile.js)
 (frontend/src/components/profileUpdate.js)
@@ -56,13 +56,17 @@
 -	edit personal information by "Edit" button in a small window
 
 ## Create invoice and Send
-**The invoice I create (server type)**
+**The invoice I created (server type)** ✅
+
+(frontend/src/components/senderRead.js)
 -	List the invoice I create with paper icon, invoice name, if send
 -	Click the paper to see the invoice content with ‘delete” button
 -	Click “delete” -> small window pop up to make sure if the user want to delete
 -	Invoice sorted by time
 
-**The invoice I received (server type)**
+**The invoice I received (server type)** ✅
+
+(frontend/src/components/doc_receive.js)
 -	List all the invoice I got with name, sender email
 -	If read, the icon is a paper.
 -	If unread, the icon is a closed envelop with a red point.
@@ -77,7 +81,7 @@
 -	If click “send” -> small window close -> hint “Your invoice already send” pops up 
 -	If click “send next time” -> small window close -> hint “Your invoice already collect in my creation” pops up
 
-## Sign up page
+## Sign up page ✅ （finished）
 - need to add input boxes with variable: company_name, company_abn, company_unit_number, company_address, company_state, company_postal_code
 
 

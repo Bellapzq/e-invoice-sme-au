@@ -13,6 +13,9 @@ import PartnerCompanies from './components/relationship/PartnerCompanies'
 import FileUpload from './components/uploadTest'
 import Profile from './components/profile'
 import ProfileUpdate from './components/profileUpdate'
+import Message from './components/message'
+import InvoicesReceive from './components/doc_receive'
+import SenderRead from './components/senderRead'
 
 function App() {
   return (
@@ -45,6 +48,9 @@ function InnerApp() {
           <Route path="/fileUpload" element={<FileUpload />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profileUpdate" element={<ProfileUpdate />} />
+          <Route path="/message" element={<Message />} />
+          <Route path="/invoicesReceive" element={<InvoicesReceive />} />
+          <Route path="/myCreation" element={<SenderRead />} />
         </Routes>
       </div>
     </div>

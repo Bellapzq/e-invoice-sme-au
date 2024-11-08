@@ -49,6 +49,7 @@ Clear the cache in your computer.
 ### ExpressJS Backend Start
 ```bash
 $ cd ExpressJS_backend
+$ npm install
 $ node server.js
 ```
 
@@ -106,3 +107,11 @@ This table will be use for contaction.
 | Sheng      | "Home", "My Account" page frontend page set up                                     |
 | Crystal    | "Home", "user management" page frontend page set up                                |
 
+### Stage 3
+| Name       | Task                                                                               |
+|------------|------------------------------------------------------------------------------------|
+| Bella      | Database update, simple Frontend and backend: account relationship, profile, read invoice, send invoice, upload test              |
+| Glofy      | Backend: invoice creation           |
+| Blythe     |                                            |
+| Sheng      |                                     |
+| Crystal    | "Home", "user management" page frontend page set up                                |

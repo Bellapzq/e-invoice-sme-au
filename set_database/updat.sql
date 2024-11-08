@@ -51,6 +51,9 @@ CREATE TABLE Document (
 ALTER TABLE Document
 ADD if_send BIT DEFAULT 0;  -- The default value is 0 (not sent)
 
+ALTER TABLE Document
+ADD CONSTRAINT UQ_Document_DocumentName UNIQUE (DocumentName);
+
 -- if you want to check table, you can use query below:
 SELECT * FROM Document
 SELECT * FROM Relationships
@@ -61,5 +64,5 @@ SELECT * FROM user_info
 -- WHERE user_id = 2;
 
 -- UPDATE Document
--- SET SenderID = 2, ReceiverID = 4, if_send = 1
--- WHERE DocumentID = 1;
+-- SET SenderID = 2, ReceiverID = 4, if_send = 0
+-- WHERE DocumentID = 3;

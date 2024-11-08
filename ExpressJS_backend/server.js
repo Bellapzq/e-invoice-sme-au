@@ -19,6 +19,15 @@ app.use('/api/relationships', relationshipRoutes);
 const docUploads = require("./routes/docUpload");
 app.use("/api/documents", docUploads);
 
+// router for message check
+const notificationRoutes = require('./routes/notificationsRoutes');
+app.use('/api/notifications', notificationRoutes);
+
+// router for document shows
+const invoiceRoutes = require('./routes/invoiceRoutes');
+app.use('/api/invoices', invoiceRoutes);
+
+
 // Start the server
 const port = 5001;
 app.listen(port, () => {
