@@ -196,7 +196,6 @@ router.put('/profile', verifyToken, async (req, res) => {
           .input('CompanyAddress', sql.NVarChar(200), company_address)
           .input('CompanyState', sql.NVarChar(200), company_state)
           .input('CompanyPostalCode', sql.NVarChar(100), company_postal_code)
-          .input('CompanyCountry', sql.NVarChar(50), company_country)
           .query(`
               UPDATE user_info
               SET 
