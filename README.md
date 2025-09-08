@@ -1,4 +1,25 @@
-# Project Name: Business Process for SMEs Utilizing E-invoicing APIs
+# Business Process for SMEs Utilizing E-invoicing APIs  
+
+A full-stack platform designed to support SMEs with **compliant e-invoicing workflows**, enabling invoice creation, delivery, and management with secure API integration.  
+
+## Features  
+- **Frontend (React.js):** User-friendly interface for invoice management, account profiles, and service types.  
+- **Backend (FastAPI & Express.js):** RESTful APIs for invoice creation, user authentication, and data management.  
+  - **FastAPI:** Provides API endpoints and integrated Swagger-UI for testing.  
+  - **Express.js:** Provides modular backend services with Swagger documentation and API testing support.  
+- **Database (SQL Server with Docker):** Persistent storage with user and invoice tables; initialized through Docker Compose.  
+- **Documentation:** Swagger-UI for both FastAPI and Express.js backends.  
+
+## Architecture  
+```plaintext
+Frontend (React.js)
+       |
+       v
+Express.js Backend (Swagger, API testing) <-> SQL Server (Docker)
+       |
+       v
+FastAPI Backend (Swagger, API testing)
+```
 
 ## Start Frontend
 1. Clone the Repository
